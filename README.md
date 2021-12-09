@@ -9,5 +9,5 @@ This is code for research in 'Personalized and Timed Travel Path Recommendation 
 
 ## Clustering
 - Requirements: Installation of Python, Tensorflow, Keras, Numpy, Matplotlib, Scikit-learn, Pandas
-- For 'Clustering' floder, you can run 'Clustering_test.py' file on Python IDE or run 'Clustering_test.ipynb' on Jupyter Notebook.
+- For 'Clustering' folder, you can run 'Clustering_test.py' file on Python IDE or run 'Clustering_test.ipynb' on Jupyter Notebook.
 - Using Jupyter Notebook is recommended, for it is convenient to see the result of the code.
