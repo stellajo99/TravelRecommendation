@@ -70,8 +70,9 @@ def read_all_users(folder):
         df = read_user(os.path.join(folder, sf))
         df['user'] = int(sf)
         dfs.append(df)
-    return pd.concat(dfs, ignore_index=True)
+    return pd.concat(dfs)
 
-df = read_all_users(r'C:\Users\User\Desktop\Geolife Trajectories 1.3\Data')
-df.to_csv('processed1.csv')
+df = read_all_users(r'C:\Users\stell\Desktop\Geolife Trajectories 1.3\Geolife Trajectories 1.3\Data')
+df = df.reindex(columns=['time', 'lat', 'lon', 'alt', 'label', 'user', 'trj_id'])
+df.to_csv('processed1.csv', index=False)
 print(df)
