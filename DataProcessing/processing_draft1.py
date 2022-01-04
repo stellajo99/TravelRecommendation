@@ -5,26 +5,44 @@ import os.path
 import datetime
 import os
 
-
 df = pd.read_csv('processed1.csv')
+df['time'] = pd.to_datetime(df['time'], format='%Y-%m-%d %H:%M', errors='raise')
+df['time'] = df['time'].dt.round('T')
+# df.info()
+# resampled = df.resample(rule='5T', on='time').first()
+# print(df)
 
-i = 0
-idx = 0
+user = 0
+trj = 0
 resampled = []
 temp = []
 
-grouped = df.groupby(['user', 'trj_id']).size().sort_values
+grouped = df.groupby(['user', 'trj_id'])
+for key, group in grouped:
+    i = 0
+    j = 0
+    print(key)
+    temp.append(group.iloc[0])
+    while i < len(group) and j < len(group):
+        current = group.iloc[i, 0]
+        next = group.iloc[j, 0]
+        # print(current, ' ', next)
 
-print(grouped)
+        time_diff = next - current
+        # print(time_diff)
+        if (time_diff) < datetime.timedelta(minutes=5):
+            j += 1
+        else:
+            i = j
+            temp.append(group.iloc[i])
+    # print(temp)
+    # print("* key", key)
+    # print("* count", len(group))
+    # print(group.head())
+    # print('\n')
 
-# while i < 182:
-#     condition1 = (df['user'] == idx)
-#     df1 = df[condition1]
-#     while df1.loc[idx]['trj_id'] == df1.loc[idx + 1]['trj_id']:
-#         temp.append(df1.loc[idx])
-#         idx += 1
-#
-# pd.concat(temp)
+df1 = pd.DataFrame(temp)
+df1.to_csv('processed2.csv', index=False)
 
 
 
