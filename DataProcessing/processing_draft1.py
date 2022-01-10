@@ -5,7 +5,7 @@ import os.path
 import datetime
 import os
 
-df = pd.read_csv('processed1.csv')
+df = pd.read_csv(r'C:\Users\User\PycharmProjects\dataProcessing\processed1.csv')
 df['time'] = pd.to_datetime(df['time'], format='%Y-%m-%d %H:%M', errors='raise')
 df['time'] = df['time'].dt.round('T')
 # df.info()
