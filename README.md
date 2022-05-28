@@ -14,7 +14,6 @@ Both .py files and .ipynb files are included, but using .ipynb is recommended si
 	- Applies K-Means clustering to numerical sequences
 - RelaxedLCS.ipynb
 	- Calculates relaxed version of longest common subsequence of string sequences
-	-〖sign〗_A (i)=relaxedLCS(〖sign〗_A (i-1),A_i)
 
 ## Data Processing
 - Requirements: Installation of Python, Numpy, Scikit-mobility, Haversine, Geopandas, Pandas, Matplotlib, Shapely.geometry
