@@ -25,7 +25,7 @@ Both .py files and .ipynb files are included, but using .ipynb is recommended si
 	- Reads geolife data and process it into the necessary form
 - stop_detection.py
 	- Detects stay points using scikit-mobility
-- trj_separation.pys
+- trj_separation.py
 	- Separates trajectories that have interval more than 3 hours
 - within_beijing.py
 	- Removes coordinates that are not in beijing
